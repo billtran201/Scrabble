@@ -1,0 +1,17 @@
+Name: The Anh Tran
+Date: 2nd of July 2023
+Assignment: HW5 - Scrabble Game
+Contact: theanh_tran@student.uml.edu
+
+
+
+I successfully made the whole board the game Scrabble with all the correct bonus tiles (Triple and Double for both Words and Letters Bonuses). With the drag and drop feature,
+even though the game score system doesn't work, I can drag a few tiles onto the board.
+
+
+
+Extra Feature:
+
+Board's Column and Row Name Toggle Button:
+I made a toggle button for the board's tile row and column so if the player wish to hide or display them, they can toggle.
+

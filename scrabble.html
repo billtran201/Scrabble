@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scrabble Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="title">
+    <h1>Scrabble</h1>
+  </div>
+
+  <!-- Play Zone First Column -->
+  <!-- Need Update Later -->
+  <div class="play-zone">
+    <div id="tile-rack">
+      <span><img src="scrabble-tile-holder.png" alt="Holder"></span>
+
+      <div class="tile-rack">
+        <img id="tile1" src="" name="tile1" alt="tile1"> <!-- Tile 1 -->
+        <img id="tile2" src="" name="tile2" alt="tile2"> <!-- Tile 2 -->
+        <img id="tile3" src="" name="tile3" alt="tile3"> <!-- Tile 3 -->
+        <img id="tile4" src="" name="tile4" alt="tile4"> <!-- Tile 4 -->
+        <img id="tile5" src="" name="tile5" alt="tile5"> <!-- Tile 5 -->
+        <img id="tile6" src="" name="tile6" alt="tile6"> <!-- Tile 6 -->
+        <img id="tile7" src="" name="tile7" alt="tile7"> <!-- Tile 7 -->
+      </div>
+
+    </div>
+      
+    
+    <div id="score-display"></div> 
+    <!-- Deal Tiles Button -->
+    <button id="deal-button" onclick="generateTile(this)">Deal Tiles</button>
+  </div>
+
+
+  <!-- Board Zone Second Column -->
+  <div class="board-zone">
+    <!-- Copy From Here -->
+    <!-- Scrabble Board -->
+    <table class="scrabble-board"> 
+      <tr class="row"> <!-- Row 0 -->
+        <td class="order-cell"> <!-- Order Cell Toggle Button -->
+          <button class="order-cell-toggle-button" onclick="orderCellToggleSwitch(this)">|</button>
+        </td> <!-- Cell 0 -->
+        <td class="order-cell">A</td> <!-- Cell 1 -->
+        <td class="order-cell">B</td> <!-- Cell 2 -->
+        <td class="order-cell">C</td> <!-- Cell 3 -->
+        <td class="order-cell">D</td> <!-- Cell 4 -->
+        <td class="order-cell">E</td> <!-- Cell 5 -->
+        <td class="order-cell">F</td> <!-- Cell 6 -->
+        <td class="order-cell">G</td> <!-- Cell 7 -->
+        <td class="order-cell">H</td> <!-- Cell 8 -->
+        <td class="order-cell">I</td> <!-- Cell 9 -->
+        <td class="order-cell">J</td> <!-- Cell 10 -->
+        <td class="order-cell">K</td> <!-- Cell 11 -->
+        <td class="order-cell">L</td> <!-- Cell 12 -->
+        <td class="order-cell">M</td> <!-- Cell 13 -->
+        <td class="order-cell">N</td> <!-- Cell 14 -->
+        <td class="order-cell">O</td> <!-- Cell 15 -->
+        <td class="order-cell"></td> <!-- Cell 16 -->
+      </tr> <!-- Row 0 -->
+
+      <tr class="row"> <!-- Row 1 -->
+        <td class="order-cell">1</td> <!-- Cell 0 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 15 -->
+        <td class="order-cell">1</td> <!-- Cell 16 -->
+      </tr> <!-- Row 1 -->
+  
+      <tr class="row"> <!-- Row 2 -->
+        <td class="order-cell">2</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">2</td> <!-- Cell 16 -->
+      </tr> <!-- Row 2 -->
+  
+      <tr class="row"> <!-- Row 3 -->
+        <td class="order-cell">3</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">3</td> <!-- Cell 16 -->
+      </tr> <!-- Row 3 -->
+
+      <tr class="row"> <!-- Row 4 -->
+        <td class="order-cell">4</td> <!-- Cell 0 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 15 -->
+        <td class="order-cell">4</td> <!-- Cell 16 -->
+      </tr> <!-- Row 4 -->
+  
+      <tr class="row"> <!-- Row 5 -->
+        <td class="order-cell">5</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">5</td> <!-- Cell 16 -->
+      </tr> <!-- Row 5 -->
+
+      <tr class="row"> <!-- Row 6 -->
+        <td class="order-cell">6</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">6</td> <!-- Cell 16 -->
+      </tr> <!-- Row 6 -->
+
+      <tr class="row"> <!-- Row 7 -->
+        <td class="order-cell">7</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">7</td> <!-- Cell 16 -->
+      </tr> <!-- Row 7 -->
+
+      <tr class="row"> <!-- Row 8 -->
+        <td class="order-cell">8</td> <!-- Cell 0 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="center-star-cell">★</td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 15 -->
+        <td class="order-cell">8</td> <!-- Cell 16 -->
+      </tr> <!-- Row 8 -->
+
+      <tr class="row"> <!-- Row 9 -->
+        <td class="order-cell">9</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">9</td> <!-- Cell 16 -->
+      </tr> <!-- Row 9 -->
+
+      <tr class="row"> <!-- Row 10 -->
+        <td class="order-cell">10</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">10</td> <!-- Cell 16 -->
+      </tr> <!-- Row 10 -->
+
+      <tr class="row"> <!-- Row 11 -->
+        <td class="order-cell">11</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">11</td> <!-- Cell 16 -->
+      </tr> <!-- Row 11 -->
+
+      <tr class="row"> <!-- Row 12 -->
+        <td class="order-cell">12</td> <!-- Cell 0 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 1 -->
+        <td  class="cell"></td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 15 -->
+        <td class="order-cell">12</td> <!-- Cell 16 -->
+      </tr> <!-- Row 12 -->
+
+      <tr class="row"> <!-- Row 13 -->
+        <td class="order-cell">13</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="cell"></td> <!-- Cell 2 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">13</td> <!-- Cell 16 -->
+      </tr> <!-- Row 13 -->
+
+      <tr class="row"> <!-- Row 14 -->
+        <td class="order-cell">14</td> <!-- Cell 0 -->
+        <td class="cell"></td> <!-- Cell 1 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 2 -->
+        <td class="cell"></td> <!-- Cell 3 -->
+        <td class="cell"></td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="cell"></td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="triple-letter-cell">3L</td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="cell"></td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="double-word-cell">2W</td> <!-- Cell 14 -->
+        <td class="cell"></td> <!-- Cell 15 -->
+        <td class="order-cell">14</td> <!-- Cell 16 -->
+      </tr> <!-- Row 14 -->
+
+      <tr class="row"> <!-- Row 15 -->
+        <td class="order-cell">15</td> <!-- Cell 0 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 1 -->
+        <td id = "dropLoc" class="cell"></td> <!-- Cell 2 -->
+        <td id = "dropLoc" class="cell"></td> <!-- Cell 3 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 4 -->
+        <td class="cell"></td> <!-- Cell 5 -->
+        <td class="cell"></td> <!-- Cell 6 -->
+        <td class="cell"></td> <!-- Cell 7 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 8 -->
+        <td class="cell"></td> <!-- Cell 9 -->
+        <td class="cell"></td> <!-- Cell 10 -->
+        <td class="cell"></td> <!-- Cell 11 -->
+        <td class="double-letter-cell">2L</td> <!-- Cell 12 -->
+        <td class="cell"></td> <!-- Cell 13 -->
+        <td class="cell"></td> <!-- Cell 14 -->
+        <td class="triple-word-cell">3W</td> <!-- Cell 15 -->
+        <td class="order-cell">15</td> <!-- Cell 16 -->
+      </tr> <!-- Row 15 -->
+
+      <tr class="row"> <!-- Row 16 -->
+        <td class="order-cell"></td> <!-- Cell 0 -->
+        <td class="order-cell">A</td> <!-- Cell 1 -->
+        <td class="order-cell">B</td> <!-- Cell 2 -->
+        <td class="order-cell">C</td> <!-- Cell 3 -->
+        <td class="order-cell">D</td> <!-- Cell 4 -->
+        <td class="order-cell">E</td> <!-- Cell 5 -->
+        <td class="order-cell">F</td> <!-- Cell 6 -->
+        <td class="order-cell">G</td> <!-- Cell 7 -->
+        <td class="order-cell">H</td> <!-- Cell 8 -->
+        <td class="order-cell">I</td> <!-- Cell 9 -->
+        <td class="order-cell">J</td> <!-- Cell 10 -->
+        <td class="order-cell">K</td> <!-- Cell 11 -->
+        <td class="order-cell">L</td> <!-- Cell 12 -->
+        <td class="order-cell">M</td> <!-- Cell 13 -->
+        <td class="order-cell">N</td> <!-- Cell 14 -->
+        <td class="order-cell">O</td> <!-- Cell 15 -->
+        <td class="order-cell"></td> <!-- Cell 16 -->
+      </tr> <!-- Row 16 -->
+    </table>     
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
